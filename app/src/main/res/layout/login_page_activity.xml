@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/log_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE1BD"
+    tools:context=".login_page_activity">
+    <TextView
+        android:id="@+id/log_textView4"
+        android:layout_width="287dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:gravity="center"
+        android:text="@string/log_title"
+        android:textColor="#5C3E32"
+        android:textSize="60px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_imageView3"
+        app:layout_constraintVertical_bias="0.021" />
+    <ImageView
+        android:id="@+id/log_imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mainlogoimg" />
+
+    <TextView
+        android:id="@+id/log_textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:text="@string/mail"
+        android:textSize="60px"
+        app:layout_constraintBottom_toTopOf="@+id/log_editTextText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_textView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/log_imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/log_editTextText"
+        app:layout_constraintEnd_toEndOf="@+id/log_editTextText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/log_editTextText"
+        app:layout_constraintTop_toTopOf="@+id/log_editTextText"
+        app:layout_constraintVertical_bias="0.4"
+        app:srcCompat="@drawable/log_rectangle" />
+    <EditText
+        android:id="@+id/log_editTextText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="12"
+        android:elevation="1dp"
+        android:background="@null"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_textView4"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <TextView
+        android:id="@+id/log_textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:text="@string/password"
+        android:textSize="60px"
+        app:layout_constraintBottom_toTopOf="@+id/log_editTextText1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_editTextText"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <ImageView
+        android:id="@+id/log_imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/log_editTextText1"
+        app:layout_constraintEnd_toEndOf="@+id/log_editTextText1"
+        app:layout_constraintStart_toStartOf="@+id/log_editTextText1"
+        app:layout_constraintTop_toTopOf="@+id/log_editTextText1"
+        app:layout_constraintVertical_bias="0.388"
+        app:srcCompat="@drawable/log_rectangle" />
+    <EditText
+        android:id="@+id/log_editTextText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="12"
+        android:elevation="1dp"
+        android:background="@null"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_imageView5"
+        app:layout_constraintVertical_bias="0.143" />
+
+    <Button
+        android:id="@+id/log_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#5C3E32"
+        android:text="@string/welcome_page_button"
+        android:textColor="#FFEEDC"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_editTextText1"
+        app:layout_constraintVertical_bias="0.331"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <TextView
+        android:id="@+id/log_textView8"
+        android:layout_width="287dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:gravity="center"
+        android:text="@string/logQ"
+        android:textColor="#5C3E32"
+        android:textSize="60px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_button"
+        app:layout_constraintVertical_bias="0.239" />
+
+    <TextView
+        android:id="@+id/log_textView9"
+        android:layout_width="287dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:gravity="center"
+        android:text="@string/log_swap"
+        android:textColor="#5C3E32"
+        android:textSize="60px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/log_button"
+        app:layout_constraintVertical_bias="0.739" />
+</androidx.constraintlayout.widget.ConstraintLayout>

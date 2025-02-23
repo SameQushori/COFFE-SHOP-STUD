@@ -1,0 +1,25 @@
+<resources>
+    <style name="InterRegular">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:fontWeight">400</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="InterMedium">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:fontWeight">500</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="InterSemibold">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="InterBold">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:fontWeight">700</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

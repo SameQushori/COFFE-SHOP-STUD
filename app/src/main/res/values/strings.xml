@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">coffe shop</string>
+    <string name="load_page_text">ДОБРЫЙ ДЕНЬ, КЛИЕНТ</string>
+    <string name="welcome_page_text">Добро пожаловать в мир кофе!</string>
+    <string name="welcome_page_text1">Дорогие кофеманы,</string>
+    <string name="welcome_page_text2">Мы рады приветствовать вас в нашем мобильном приложении, где каждый глоток — это путешествие в мир ароматных кофейных зерен! </string>
+    <string name="welcome_page_button">НАЧАТЬ</string>
+    <string name="reg_title">Создать аккаунт</string>
+    <string name="mail">почта</string>
+    <string name="password">пароль</string>
+    <string name="regQ">Уже есть учетная запись?</string>
+    <string name="reg_swap">Войти</string>
+    <string name="log_title">Войдите в свою учетную запись</string>
+    <string name="logQ">Нет учетеной записи?</string>
+    <string name="log_swap">Зарегистрироваться</string>
+    <string name="edittext_text">Введите имя</string>
+    <string name="product_image">#</string>
+    <string name="lc">Личный кабинет</string>
+    <string name="favorite">Избранное</string>
+    <string name="basket">Корзина</string>
+    <string name="add_to_cart">добавить в корзину\n</string>
+    <string name="svodka">Сводка заказа</string>
+</resources>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"    android:background="#FFE1BD"
+    android:textColor="#5C3E32"
+    android:layout_height="match_parent">
+
+
+    <!-- Back Button -->
+
+    <!-- Title -->
+
+    <!-- RecyclerView for Cart Items -->
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:textColor="#5C3E32"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="КОРЗИНА"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/totalPriceContainer" />
+
+    <!-- Total Price Container -->
+    <LinearLayout
+        android:id="@+id/totalPriceContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@id/checkoutButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/totalPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Итого: 0.00 ₽"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#5C3E32" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/emptyCartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Корзина пуста"
+        android:visibility="gone"
+    android:layout_gravity="center"
+    android:textSize="18sp"
+    android:padding="16dp" />
+    <!-- Checkout Button -->
+    <Button
+        android:id="@+id/checkoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ОФОРМИТЬ ЗАКАЗ"
+        android:textSize="18sp"
+        android:fontFamily="@font/inter_semibold"
+        android:fontWeight="600"
+        android:textAllCaps="true"
+        android:backgroundTint="#5C3E32"
+        android:textColor="@android:color/white"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewCart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.592"
+        app:srcCompat="@drawable/ic_arrow_back" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
