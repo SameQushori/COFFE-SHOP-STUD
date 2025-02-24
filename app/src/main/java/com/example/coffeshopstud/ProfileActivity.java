@@ -56,6 +56,13 @@ public class ProfileActivity extends AppCompatActivity {
             finish(); // Закрываем эту активность
         }
 
+        // Обработка нажатия кнопки "Назад"
+        findViewById(R.id.buttonBack).setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, main_page_activity.class);
+            startActivity(intent);
+        });
+
+
         // Обработчик нажатия на кнопку выхода
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override

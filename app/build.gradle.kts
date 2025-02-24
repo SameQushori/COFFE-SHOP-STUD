@@ -35,11 +35,14 @@ android {
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
-
+    implementation ("com.google.firebase:firebase-storage-ktx")
+    implementation ("com.google.firebase:firebase-firestore-ktx")
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation(libs.firebase.database)
+    implementation ("com.google.android.material:material:1.9.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.google.android.material:material:1.8.0")
 

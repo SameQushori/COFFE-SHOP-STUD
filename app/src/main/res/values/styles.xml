@@ -22,4 +22,9 @@
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="RoundedCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item> <!-- Adjust corner radius as needed -->
+    </style>
 </resources>

@@ -65,16 +65,23 @@
             android:textColor="#5C3E32" />
     </LinearLayout>
 
+    <!-- Checkout Button -->
+
     <TextView
         android:id="@+id/emptyCartTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Корзина пуста"
+        android:layout_gravity="center"
         android:visibility="gone"
-    android:layout_gravity="center"
-    android:textSize="18sp"
-    android:padding="16dp" />
-    <!-- Checkout Button -->
+        android:layout_marginBottom="580dp"
+        android:padding="16dp"
+        android:text="Корзина пуста"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/checkoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/checkoutButton"
         android:layout_width="match_parent"
@@ -95,12 +102,12 @@
         android:id="@+id/backButton"
         android:layout_width="45dp"
         android:layout_height="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewCart"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592"
+
         app:srcCompat="@drawable/ic_arrow_back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

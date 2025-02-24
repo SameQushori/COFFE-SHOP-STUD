@@ -1,12 +1,15 @@
 package com.example.coffeshopstud;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
@@ -17,17 +20,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         this.items = items;
     }
 
-    // Method to update the list of items
     public void updateItems(List<CartItem> newItems) {
         this.items = newItems;
-        notifyDataSetChanged(); // Notify the adapter of data changes
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflate the item_cart layout
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
+        Context context = parent.getContext();
+        View view = LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false);
         return new CartViewHolder(view);
     }
 
@@ -35,7 +37,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem item = items.get(position);
 
-        // Bind data to views
         holder.productImage.setImageResource(item.getProduct().getImageResource());
         holder.productName.setText(item.getProduct().getName());
         holder.productPrice.setText(String.format("₽%d", item.getProduct().getPrice()));

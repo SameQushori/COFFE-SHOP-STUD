@@ -16,18 +16,19 @@ public class Cart implements Serializable {
     }
 
     public void addItem(Product product, int quantity) {
-        if (quantity <= 0) return;
-
-        // Check if the product already exists in the cart
-        for (CartItem item : items) {
-            if (item.getProduct().getId().equals(product.getId())) {
-                item.setQuantity(item.getQuantity() + quantity);
-                return;
+        if (quantity > 0) {
+            boolean itemExists = false;
+            for (CartItem item : items) {
+                if (item.getProduct().getId().equals(product.getId())) {
+                    item.setQuantity(item.getQuantity() + quantity);
+                    itemExists = true;
+                    break;
+                }
+            }
+            if (!itemExists) {
+                items.add(new CartItem(product, quantity));
             }
         }
-
-        // Add a new item to the cart
-        items.add(new CartItem(product, quantity));
     }
 
     public double getTotalPrice() {
@@ -36,6 +37,10 @@ public class Cart implements Serializable {
             total += item.getProduct().getPrice() * item.getQuantity();
         }
         return total;
+    }
+
+    public void removeItem(Product product) {
+        items.removeIf(item -> item.getProduct().getId().equals(product.getId()));
     }
 
     public void clear() {
