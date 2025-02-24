@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
-
     private FirebaseAuth mAuth;
     private TextView textViewName;
     private TextView textViewEmail;
@@ -24,57 +23,50 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // Инициализация Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Инициализация UI элементов
+        // Initialize UI elements
         textViewName = findViewById(R.id.textViewName);
         textViewEmail = findViewById(R.id.textViewEmail);
         buttonLogout = findViewById(R.id.buttonLogout);
 
-        // Получение текущего пользователя
+        // Get current user
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-            // Установка данных пользователя
-            String name = user.getDisplayName(); // Если имя доступно
+            // Set user data
+            String name = user.getDisplayName(); // Display name
             String email = user.getEmail();
-
             if (name == null || name.isEmpty()) {
-                name = "Имя не указано"; // Заглушка, если имя отсутствует
+                name = "Имя не указано"; // Fallback if name is not set
             }
             if (email == null || email.isEmpty()) {
-                email = "Почта не указана"; // Заглушка, если почта отсутствует
+                email = "Почта не указана"; // Fallback if email is not set
             }
-
             textViewName.setText(name);
             textViewEmail.setText(email);
         } else {
-            // Если пользователь не авторизован, перенаправляем на страницу входа
+            // If user is not logged in, redirect to login page
             Toast.makeText(this, "Вы не вошли в систему!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ProfileActivity.this, login_page_activity.class);
             startActivity(intent);
-            finish(); // Закрываем эту активность
+            finish(); // Close this activity
         }
 
-        // Обработка нажатия кнопки "Назад"
+        // Back button handler
         findViewById(R.id.buttonBack).setOnClickListener(v -> {
             Intent intent = new Intent(ProfileActivity.this, main_page_activity.class);
             startActivity(intent);
         });
 
-
-        // Обработчик нажатия на кнопку выхода
+        // Logout button handler
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Выход из аккаунта через Firebase
                 mAuth.signOut();
                 Toast.makeText(ProfileActivity.this, "Вы вышли из аккаунта", Toast.LENGTH_SHORT).show();
-
-                // Перенаправление на страницу входа
                 Intent intent = new Intent(ProfileActivity.this, login_page_activity.class);
                 startActivity(intent);
-                finish(); // Закрываем эту активность
+                finish(); // Close this activity
             }
         });
     }

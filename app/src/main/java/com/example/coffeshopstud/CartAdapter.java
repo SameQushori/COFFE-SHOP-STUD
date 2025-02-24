@@ -1,6 +1,5 @@
 package com.example.coffeshopstud;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -28,8 +29,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
         return new CartViewHolder(view);
     }
 
@@ -37,7 +37,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem item = items.get(position);
 
-        holder.productImage.setImageResource(item.getProduct().getImageResource());
+        // Загрузка изображения с помощью Glide
+        Glide.with(holder.itemView.getContext())
+                .load(item.getProduct().getImageUrl()) // URL изображения
+                .placeholder(R.drawable.placeholder_image) // Заглушка, пока изображение загружается
+                .error(R.drawable.error_image) // Изображение при ошибке
+                .into(holder.productImage);
+
         holder.productName.setText(item.getProduct().getName());
         holder.productPrice.setText(String.format("₽%d", item.getProduct().getPrice()));
         holder.quantity.setText(String.format("Количество: %d", item.getQuantity()));

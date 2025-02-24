@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,7 +33,7 @@ public class main_page_activity extends AppCompatActivity implements ProductAdap
         cart = new Cart();
 
         recyclerViewProducts = findViewById(R.id.recyclerViewProducts);
-        recyclerViewProducts.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewProducts.setLayoutManager(new GridLayoutManager(this, 2));
 
         loadProducts();
         setupBottomNavigation();
@@ -48,9 +49,9 @@ public class main_page_activity extends AppCompatActivity implements ProductAdap
                         String id = document.getString("id");
                         String name = document.getString("name");
                         int price = document.getLong("price").intValue();
-                        int imageResource = getImageResource(document.getString("image"));
+                        String imageUrl = document.getString("imageUrl"); // Получаем URL-адрес изображения
 
-                        productList.add(new Product(id, name, price, imageResource));
+                        productList.add(new Product(id, name, price, imageUrl)); // Передаем URL-адрес
                     }
                     productAdapter = new ProductAdapter(productList, this);
                     recyclerViewProducts.setAdapter(productAdapter);

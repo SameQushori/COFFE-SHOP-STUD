@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class register_page_activity extends AppCompatActivity {
-
     private FirebaseAuth mAuth;
 
     @Override
@@ -46,10 +46,22 @@ public class register_page_activity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     if (user != null) {
-                                        Toast.makeText(register_page_activity.this, "Регистрация успешна!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(register_page_activity.this, main_page_activity.class);
-                                        startActivity(intent);
-                                        finish(); // Close this activity
+                                        // Обновляем профиль пользователя с именем
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                .setDisplayName(name) // Устанавливаем имя
+                                                .build();
+
+                                        user.updateProfile(profileUpdates)
+                                                .addOnCompleteListener(task1 -> {
+                                                    if (task1.isSuccessful()) {
+                                                        Toast.makeText(register_page_activity.this, "Регистрация успешна!", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(register_page_activity.this, main_page_activity.class);
+                                                        startActivity(intent);
+                                                        finish(); // Close this activity
+                                                    } else {
+                                                        Toast.makeText(register_page_activity.this, "Ошибка обновления профиля: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
                                     }
                                 } else {
                                     Toast.makeText(register_page_activity.this, "Ошибка регистрации: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
